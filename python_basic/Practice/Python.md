@@ -1,15 +1,3 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-<foreignObject>
-<style>  
-    * {
-        font-family: "Noto Sans JP", sans-serif;
-    }
-</style>
-
-</foreignObject>
-
 # Python 研修（応用編）
 
 ## pip とは？
@@ -56,4 +44,52 @@ Python の機能を拡張するための追加モジュールやライブラリ�
 
 ```
     pip uninstall [package_name]
+```
+
+# pandas とは
+
+データ解析を容易にする機能を提供する Python のデータ解析ライブラリです。
+データフレーム(DataFrame)などの独自のデータ構造が提供されており、様々な処理が可能です。
+表形式のデータを SQL のように操作することが可能で、かつ高速で処理出来ます
+
+```
+    pip install pandas
+```
+
+## pandas のデータ型
+
+### Series
+
+1 次元データ、列や行として使われる
+
+```
+    def define_series():
+    series_data = [10,15,20,25]
+    ser = pd.Series(series_data)
+```
+
+### DataFrame
+
+2 次元データ、Seires で列と行が構成されているテーブル。
+
+```
+   dataframe_data = ([
+        [100, "a", True],
+        [150, "b", False],
+        [300, "c", False],
+        [550, "d", True]
+    ])
+    df = pd.DataFrame(dataframe_data)
+```
+
+### 行名（Index）の変更
+
+```
+    df.index=["01","02","03","04"]
+```
+
+### 列名の変更
+
+```
+    df.columns=["A","B","C"]
 ```
