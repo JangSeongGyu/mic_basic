@@ -3,7 +3,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 <head>
 <style>  
-* {
+h1,h2,h3,h4,h5,h6,p {
     font-family: "Noto Sans JP", sans-serif;
 }
 </style>
