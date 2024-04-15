@@ -78,7 +78,7 @@ ser = pd.Series(series_data)
 
 2 次元データ、Seires で列と行が構成されているテーブル。
 
-```
+```python
 dataframe_data = ([
     [100, "a", True],
     [150, "b", False],
@@ -88,17 +88,21 @@ dataframe_data = ([
 df = pd.DataFrame(dataframe_data)
 ```
 
+## 列名、行名の変更
+
 ### 行名（Index）の変更
 
 ```
 df.index=["01","02","03","04"]
 ```
 
-### 列名の変更
+> ### 列名（Column）の変更
+>
+> ```
+> df.columns=["A","B","C"]
+> ```
 
-```
-df.columns=["A","B","C"]
-```
+## 表示する列名、行名の指定
 
 ### 列の指定
 
@@ -106,7 +110,7 @@ df.columns=["A","B","C"]
 df["A"]
 ```
 
-#### 複数の列を指定
+### 複数の列を指定
 
 ```
 df[["B","C"]]
@@ -115,11 +119,9 @@ df[["B","C"]]
 ### 行の指定
 
 ```
-print(df[0])
+print(df[0:1])
 ```
 
-#### 複数の行を指定
-
 ```
-print(df[0:2])
+
 ```
