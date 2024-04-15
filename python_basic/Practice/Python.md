@@ -81,9 +81,9 @@ ser = pd.Series(series_data)
 ```python
 dataframe_data = ([
     [100, "a", True],
-    [150, "b", False],
-    [300, "c", False],
-    [550, "d", True]
+    [200, "b", False],
+    [150, "d", False],
+    [550, "c", True]
 ])
 df = pd.DataFrame(dataframe_data)
 ```
@@ -102,30 +102,138 @@ df.index=["01","02","03","04"]
 df.columns=["A","B","C"]
 ```
 
-## 表示する列名、行名の指定
+## データの範囲を指定
+
+> ### 注意！
+>
+> ここからの研修は「titanic.csv」を活用して行う
+>
+> ```
+> df = pd.read_csv("./titanic.csv")
+> ```
 
 ### 列の指定
 
 ```python
-df["A"]
+df["Age"]
 ```
 
 ### 複数の列を指定
 
 ```python
-df[["B","C"]]
+df[["Age","Name"]]
 ```
 
-> ### 行の指定
+### 行の指定
+
+```python
+print(df[0:10])
+```
+
+> ### 注意！
+>
+> [0:10]は列名の配列を Return するので問題ない。  
+> [1]は列名が「１」というデータを探そうとするのでエラーが発生！
 >
 > ```python
-> print(df[0:1])
+> print(df[1])
 > ```
+
+### 行数の指定
+
+上から{n}行までのデータを取る。
+
+```python
+df.head(number)
+```
+
+```python
+df.head()
+df.head(3)
+```
+
+下から{n}行までのデータを取る。
+
+```python
+df.tail(number)
+```
+
+```python
+df.tail()
+df.tail(3)
+```
+
+> ### 注意！
 >
-> > ### 注意！
-> >
-> > [0:1]は列名の配列を Return するので問題ないが、[1]は列名が「１」というデータを探そうとするのでエラーが発生！
-> >
-> > ```python
-> > print(df[1])
-> > ```
+> 行数を入力しない場合、5 行までに表示されます。
+
+### 複数の（行、列）名を指定
+
+```python
+df.loc[[行],[列]]
+```
+
+```python
+print(df.loc[[2,5]]) # 行の指定
+print(df.loc[:,["Age","Name"]]) # 列の指定
+print(df.loc[[2,5],["Age","Name"]]) # 行、列の指定
+```
+
+### 複数の（行、列）Index を指定
+
+```python
+df.iloc[[行No],[列No]]
+```
+
+```python
+print(df.iloc[1]) # 行指定
+print(df.iloc[:,0:2]) #　列指定
+print(df.iloc[1:3,1:3]) #　列、行指定
+```
+
+### 一つの結果のみ取得する
+
+特定のデータのみ取得するので「loc、iloc」より早い
+
+```python
+print(df.at[0,"Age"])
+print(df.iat[0,1])
+```
+
+### 比較演算子で範囲を指定
+
+Age 列のデータが 30 以上だったら True、以外は False の配列を返す。
+
+```python
+df["Age"]>=30
+```
+
+条件に該当するデータのみ返す。
+
+```python
+df[df["Age"]]>=30
+```
+
+20,30 歳のデータを取得する。
+
+```python
+df[df["Age"].isin([20,30,40])]
+```
+
+## ソート
+
+列を基準にソートする
+
+```python
+df.sort_values("列名")
+```
+
+```python
+df.sort_values("B")
+```
+
+ascending が True = 昇順、False = 降順
+
+```python
+print(df.sort_values("B",ascending=False))
+```
