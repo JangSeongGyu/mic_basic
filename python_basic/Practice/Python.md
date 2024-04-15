@@ -26,31 +26,31 @@ Python の機能を拡張するための追加モジュールやライブラリ�
 - pip のバージョン確認
 
 ```
-    pip --version
+pip --version
 ```
 
 - pip のアップデート
 
 ```
-    pip install --upgrade pip
+pip install --upgrade pip
 ```
 
 - pip のインストール一覧確認
 
 ```
-   pip list
+pip list
 ```
 
 - pip のインストール
 
 ```
-    pip install [package_name]
+pip install [package_name]
 ```
 
 - pip のアンインストール
 
 ```
-    pip uninstall [package_name]
+pip uninstall [package_name]
 ```
 
 # pandas とは
@@ -60,7 +60,7 @@ Python の機能を拡張するための追加モジュールやライブラリ�
 表形式のデータを SQL のように操作することが可能で、かつ高速で処理出来ます
 
 ```
-    pip install pandas
+pip install pandas
 ```
 
 ## pandas のデータ型
@@ -70,9 +70,8 @@ Python の機能を拡張するための追加モジュールやライブラリ�
 1 次元データ、列や行として使われる
 
 ```
-    def define_series():
-    series_data = [10,15,20,25]
-    ser = pd.Series(series_data)
+series_data = [10,15,20,25]
+ser = pd.Series(series_data)
 ```
 
 ### DataFrame
@@ -80,23 +79,47 @@ Python の機能を拡張するための追加モジュールやライブラリ�
 2 次元データ、Seires で列と行が構成されているテーブル。
 
 ```
-   dataframe_data = ([
-        [100, "a", True],
-        [150, "b", False],
-        [300, "c", False],
-        [550, "d", True]
-    ])
-    df = pd.DataFrame(dataframe_data)
+dataframe_data = ([
+    [100, "a", True],
+    [150, "b", False],
+    [300, "c", False],
+    [550, "d", True]
+])
+df = pd.DataFrame(dataframe_data)
 ```
 
 ### 行名（Index）の変更
 
 ```
-    df.index=["01","02","03","04"]
+df.index=["01","02","03","04"]
 ```
 
 ### 列名の変更
 
 ```
-    df.columns=["A","B","C"]
+df.columns=["A","B","C"]
+```
+
+### 列の指定
+
+```
+df["A"]
+```
+
+#### 複数の列を指定
+
+```
+df[["B","C"]]
+```
+
+### 行の指定
+
+```
+print(df[0])
+```
+
+#### 複数の行を指定
+
+```
+print(df[0:2])
 ```
