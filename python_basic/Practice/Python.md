@@ -69,7 +69,7 @@ pip install pandas
 
 1 次元データ、列や行として使われる
 
-```
+```python
 series_data = [10,15,20,25]
 ser = pd.Series(series_data)
 ```
@@ -92,36 +92,40 @@ df = pd.DataFrame(dataframe_data)
 
 ### 行名（Index）の変更
 
-```
+```python
 df.index=["01","02","03","04"]
 ```
 
-> ### 列名（Column）の変更
->
-> ```
-> df.columns=["A","B","C"]
-> ```
+### 列名（Column）の変更
+
+```python
+df.columns=["A","B","C"]
+```
 
 ## 表示する列名、行名の指定
 
 ### 列の指定
 
-```
+```python
 df["A"]
 ```
 
 ### 複数の列を指定
 
-```
+```python
 df[["B","C"]]
 ```
 
-### 行の指定
-
-```
-print(df[0:1])
-```
-
-```
-
-```
+> ### 行の指定
+>
+> ```python
+> print(df[0:1])
+> ```
+>
+> > ### 注意！
+> >
+> > [0:1]は列名の配列を Return するので問題ないが、[1]は列名が「１」というデータを探そうとするのでエラーが発生！
+> >
+> > ```python
+> > print(df[1])
+> > ```
